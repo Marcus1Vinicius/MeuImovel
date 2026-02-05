@@ -1,5 +1,9 @@
 package com.MeuImovel.MeuImovelCRM.model;
 import jakarta.persistence.*;
+import lombok.*;
+@Data // Cria Getters, Setters e muito mais
+@NoArgsConstructor // Cria o construtor vazio para o Hibernate
+@AllArgsConstructor // Cria o construtor completo
 @Entity
 public class Cliente {
     @Id // Identifica que este campo é a chave primária
