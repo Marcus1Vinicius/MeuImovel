@@ -14,4 +14,4 @@ public class Dependente {
 
 }
 
-// o status do dependente vai vir para ca
+// o status do dependente vai precisar ser criado em formato de enum assim como statusCliente
