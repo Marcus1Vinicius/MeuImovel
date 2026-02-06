@@ -12,6 +12,18 @@ public class Dependente {
     @Embedded
     private Cpf cpfDependente;
 
+    @Enumerated(EnumType.STRING)
+    private StatusDependente status;
+
+    private int dataNascimento;
+    @Embedded
+    private CertidaoDeNascimento Certidao;
+
+    @Embedded
+    private String carteiraDeTrabalho;
+
+
+
 }
 
 // o status do dependente vai precisar ser criado em formato de enum assim como statusCliente
