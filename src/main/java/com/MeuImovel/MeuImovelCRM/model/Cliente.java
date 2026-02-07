@@ -1,7 +1,9 @@
 package com.MeuImovel.MeuImovelCRM.model;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.context.annotation.EnableMBeanExport;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data // Cria Getters, Setters e muito mais
@@ -17,12 +19,14 @@ public class Cliente {
     private String nome;
 
     @Embedded
-    private Cpf cpfFormatoTextoCliente;
+    private Cpf cpfDigitadoCliente;
 
-    private String cpfFormatoArquivo; // aqui vai ficar a URL do arquivo escaneado do cliente;
+    private String arquivoDoCpfCliente; // aqui vai ficar a URL do arquivo escaneado do cliente;
 
     @Embedded
-    private Rg rgCliente;
+    private Rg rgDigitadoCliente;
+
+    private String arquivoDoRgCliente; // aqui vai ficar a URL do arquivo escaneado do cliente;
 
     private String carteiraDeTrabalho; // vou adicionar apenas o link para onde o arquivo fica salvo, para melhor performace de consulta.
 
@@ -51,5 +55,10 @@ public class Cliente {
 
     @OneToMany(mappedBy = "clienteComprador") // Muitos imoveis para um cliente // Nome da coluna que guardará o ID do imovel no banco
     private List<Imovel> imoveisCliente;
+
+    @ElementCollection
+    @CollectionTable(name = "documento_extra_do_cliente", joinColumns = @JoinColumn(name = "clientr_id"))
+    @Column(name = "NovoDocumentoCliente")
+    private List<NovosDocumentos> novoDocumentoCliente = new ArrayList<>();// atributo dedicado a documentos que surgem a medida que o processo de compra do imovel vai dando certo
 
 }

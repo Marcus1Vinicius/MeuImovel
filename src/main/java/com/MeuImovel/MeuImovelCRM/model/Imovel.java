@@ -35,7 +35,7 @@ public class Imovel {
 
     private int numero;
 
-    private String construtora;
+    private String construtora; //atributo vai ser opcional
 
     @ManyToOne // Muitos imoveis para um corretor
     @JoinColumn(name = "corretor_id") // Nome da coluna que guardará o ID do corretor no banco
