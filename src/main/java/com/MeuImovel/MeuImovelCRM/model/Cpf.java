@@ -5,4 +5,5 @@ import jakarta.persistence.Embeddable;
 @Embeddable // preciso adicionar em todos os objetos que sao atributos em outras classes
 
 public class Cpf {
+    protected String cpf_texto;
 }

@@ -17,7 +17,9 @@ public class Cliente {
     private String nome;
 
     @Embedded
-    private Cpf cpfCliente;
+    private Cpf cpfFormatoTextoCliente;
+
+    private String cpfFormatoArquivo; // aqui vai ficar a URL do arquivo escaneado do cliente;
 
     @Embedded
     private Rg rgCliente;
@@ -41,7 +43,7 @@ public class Cliente {
     private int rendaDoCliente;
 
     @Enumerated(EnumType.STRING)
-    public StatusCliente status; // para o corretor poder saber quais os estáágios que o cliente se encontra
+    public StatusCliente status; // para o corretor poder saber quais os estágios que o cliente se encontra
 
     @ManyToOne // Muitos clientes para um corretor
     @JoinColumn(name = "corretor_id") // Nome da coluna que guardará o ID do corretor no banco

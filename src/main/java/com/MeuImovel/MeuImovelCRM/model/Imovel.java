@@ -35,8 +35,7 @@ public class Imovel {
 
     private int numero;
 
-    @Embedded
-    private Construtora construtora; // relacionamento de um para um
+    private String construtora;
 
     @ManyToOne // Muitos imoveis para um corretor
     @JoinColumn(name = "corretor_id") // Nome da coluna que guardará o ID do corretor no banco
