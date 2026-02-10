@@ -8,8 +8,25 @@ import org.hibernate.annotations.Collate;
 @Embeddable // preciso adicionar em todos os objetos que sao atributos em outras classes
 
 public class Cpf {
+    //Atributos
     @Column(name = "cpf")
     private String cpfDigitos;
+
+    //construtores
+    protected Cpf(){
+
+    };
+
+    public Cpf(String cpfEntrada){
+        String cpfProcessado = validarTamanhoCpf(cpfEntrada);
+
+        if(!ValidarCpf(cpfProcessado)){
+            throw new IllegalArgumentException("O cálculo do CPF é inválido.");
+        }
+        this.cpfDigitos = cpfProcessado;
+    }
+
+    //metodos
     private String validarTamanhoCpf(String cpfDigitos) { //esse metodo retira os pontos e tracos do cpf, valida se foi digitado algo no cpf, valida a quantidade de caracteres, valida se esses caracteres sao somente numericos e converte o cpf string para int
 
         if(cpfDigitos == null){
@@ -77,6 +94,13 @@ public class Cpf {
 
     }
 
-    // espaço para o construtor do CPF
+    @Override
+    public String toString() {
+        // Esse método aplica a máscara: 000.000.000-00 para melhor leitura do user
+        return cpfDigitos.substring(0, 3) + "." +
+                cpfDigitos.substring(3, 6) + "." +
+                cpfDigitos.substring(6, 9) + "-" +
+                cpfDigitos.substring(9);
+    }
 }
 
