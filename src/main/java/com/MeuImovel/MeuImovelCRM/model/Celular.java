@@ -10,12 +10,11 @@ public class Celular {
     protected Celular(){
 
     }
-
     public Celular(String celularEntrada){
 
         boolean celularProcessado = validarDigitosCelular(celularEntrada);
 
-        if (celularProcessado){
+        if (!celularProcessado){
             throw new IllegalArgumentException("Celular invalido!");
         }
         this.celularDigitos = celularEntrada.replaceAll("\\D", "");
@@ -26,6 +25,10 @@ public class Celular {
 
         if(celularDigitos == null){
             throw new IllegalArgumentException("O celular não pode ser nulo!");
+        }
+
+        if (celularDigitos.matches("(\\d)\\1+")) {
+            throw new IllegalArgumentException("Celular inválido (números repetidos)");
         }
 
         String celularLimpo = celularDigitos.replaceAll("\\D", "");
