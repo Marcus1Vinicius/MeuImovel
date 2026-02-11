@@ -18,9 +18,16 @@ public class CelularTest {
     }
 
     @Test
-    @DisplayName("Não deve aceitar celular que não sejam válidos")
-    void testeNUmeroQuaseValido() {
+    @DisplayName("Não deve aceitar os celulares que não sejam válidos")
+    void testeNumeroQuaseValido() {
         assertThrows(IllegalArgumentException.class, () -> new Celular("1086398194"));
+    }
+
+    @Test
+    @DisplayName("Deve aceitar os celulares que sejam válidos")
+    void testeNumeroValido() {
+        String celularValido = "84986398194";
+        assertDoesNotThrow(() -> new Celular(celularValido));
     }
 
 }

@@ -17,4 +17,11 @@ public class EmailTest {
         assertThrows(IllegalArgumentException.class, () -> new Email("email@comf"));
     }
 
+    @Test
+    @DisplayName("Deve aceitar emails com formato válido!")
+    void testEmailValido(){
+        String emailValido = "marcus@gmail.com";
+        assertDoesNotThrow(() -> new Email(emailValido));
+    }
+
 }
