@@ -30,7 +30,7 @@ public class Cpf {
     private String validarTamanhoCpf(String cpfDigitos) { //esse metodo retira os pontos e tracos do cpf, valida se foi digitado algo no cpf, valida a quantidade de caracteres, valida se esses caracteres sao somente numericos e converte o cpf string para int
 
         if(cpfDigitos == null){
-            throw new IllegalArgumentException("O CPF nao pode ser nulo");
+            throw new IllegalArgumentException("O CPF não pode ser nulo");
         }
 
         String cpfLimpo = cpfDigitos.replaceAll("[.-]", "");

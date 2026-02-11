@@ -15,7 +15,7 @@ public class Celular {
         boolean celularProcessado = validarDigitosCelular(celularEntrada);
 
         if (!celularProcessado){
-            throw new IllegalArgumentException("Celular invalido!");
+            throw new IllegalArgumentException("Celular inválido!");
         }
         this.celularDigitos = celularEntrada.replaceAll("\\D", "");
 

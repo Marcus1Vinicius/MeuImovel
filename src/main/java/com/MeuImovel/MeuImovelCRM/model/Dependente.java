@@ -30,7 +30,7 @@ public class Dependente {
     private int idade;
 
     @Embedded
-    private CertidaoDeNascimento Certidao;
+    private String Certidao;
 
     @Embedded
     private String carteiraDeTrabalho;
