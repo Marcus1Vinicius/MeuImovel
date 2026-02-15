@@ -23,9 +23,6 @@ public class Cliente {
 
     private String arquivoDoCpfCliente; // aqui vai ficar a URL do arquivo escaneado do cliente;
 
-    @Embedded
-    private Rg rgDigitadoCliente;
-
     private String arquivoDoRgCliente; // aqui vai ficar a URL do arquivo escaneado do cliente;
 
     private String carteiraDeTrabalho; // vou adicionar apenas o link para onde o arquivo fica salvo, para melhor performace de consulta.
