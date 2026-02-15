@@ -1,5 +1,8 @@
 package com.MeuImovel.MeuImovelCRM.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true) //ignora propriedades desconhecidas
 public record ViaCepResponse(
         String cep,
         String logradouro,
@@ -13,4 +16,5 @@ public record ViaCepResponse(
         String ibge,
         String gia,
         String ddd,
-        String siafi) {}
+        String siafi) {
+}
