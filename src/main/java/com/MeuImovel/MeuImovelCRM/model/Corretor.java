@@ -19,8 +19,7 @@ public class Corretor {
 
     private String nome;
 
-    @Embedded
-    private Creci creciCorretor;
+    private String creciCorretor;
 
     private String fotoCorretor;
 
