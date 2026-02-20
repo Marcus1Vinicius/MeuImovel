@@ -32,4 +32,9 @@ build/
 ### VS Code ###
 .vscode/
 
-application.properties
+# Seguranca: Ignorar configuracoes locais
+/src/main/resources/application.properties
+
+# Logs e arquivos temporarios
+*.log
+.DS_Store
