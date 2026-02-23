@@ -24,8 +24,7 @@ public class Dependente {
 
     private String arquivoDoCpfDependente;
 
-    @Enumerated(EnumType.STRING)
-    private StatusDependente status;
+    private Status status;
 
     private int idade;
 

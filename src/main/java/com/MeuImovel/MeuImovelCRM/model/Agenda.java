@@ -1,4 +1,4 @@
 package com.MeuImovel.MeuImovelCRM.model;
 
-public enum StatusImovel {
+public class Agenda {
 }

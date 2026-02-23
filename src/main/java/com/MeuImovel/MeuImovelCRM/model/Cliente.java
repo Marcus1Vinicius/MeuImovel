@@ -1,7 +1,6 @@
 package com.MeuImovel.MeuImovelCRM.model;
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.context.annotation.EnableMBeanExport;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +28,12 @@ public class Cliente {
 
     private String comprovanteDeResidencia;
 
+    private String informacaoAdicional;
+
+    private String situacaoSerasa; // aqui vou criar uma classe que retorne a situacao do cliente no serasa
+
+    private String dataAvalicao; // vai guardar a data de quando o cliente foi avaliado pelo banco
+
     @Embedded
     private Email emailCliente;
 
@@ -43,8 +48,7 @@ public class Cliente {
 
     private int rendaDoCliente;
 
-    @Enumerated(EnumType.STRING)
-    public StatusCliente status; // para o corretor poder saber quais os estágios que o cliente se encontra
+    public Status status; // para o corretor poder saber quais os estágios que o cliente se encontra
 
     @ManyToOne // Muitos clientes para um corretor
     @JoinColumn(name = "corretor_id") // Nome da coluna que guardará o ID do corretor no banco

@@ -17,8 +17,9 @@ public class Imovel {
 
     private int valor;
 
-    @Enumerated(EnumType.STRING)
-    private StatusImovel status; //vai ser uma lista assim como o status cliente
+    private float metragem;
+
+    private Status status; //vai ser uma lista assim como o status cliente
 
     private String fotos;
 
