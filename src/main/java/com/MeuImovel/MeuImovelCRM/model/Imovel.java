@@ -46,4 +46,6 @@ public class Imovel {
     @JoinColumn(name = "cliente_id") // Nome da coluna que guardará o ID do corretor no banco
     private Cliente clienteComprador;
 
+    private String informacaoAdicional;
+
 }
