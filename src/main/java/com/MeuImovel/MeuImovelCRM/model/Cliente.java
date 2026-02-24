@@ -4,6 +4,7 @@ import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.time.LocalDate;
 
 @Data // Cria Getters, Setters e muito mais
 @NoArgsConstructor // Cria o construtor vazio para o Hibernate
@@ -16,6 +17,10 @@ public class Cliente {
     private Long id;
 
     private String nome;
+
+    private LocalDate dataNascimento;
+
+    private int idade;
 
     @Embedded
     private Cpf cpfDigitadoCliente;

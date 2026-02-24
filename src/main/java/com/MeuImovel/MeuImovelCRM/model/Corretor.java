@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+import java.time.LocalDate;
+
 @Data // Cria Getters, Setters e muito mais
 @NoArgsConstructor // Cria o construtor vazio para o Hibernate
 @AllArgsConstructor // Cria o construtor completo
@@ -18,6 +20,10 @@ public class Corretor {
     private long id;
 
     private String nome;
+
+    private LocalDate dataNascimento;
+
+    private int idade;
 
     private String creciCorretor;
 

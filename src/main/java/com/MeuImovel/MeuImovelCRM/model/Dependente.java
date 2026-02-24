@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +29,8 @@ public class Dependente {
     private Status status;
 
     private int idade;
+
+    private LocalDate dataNascimento;
 
     @Embedded
     private String Certidao;
