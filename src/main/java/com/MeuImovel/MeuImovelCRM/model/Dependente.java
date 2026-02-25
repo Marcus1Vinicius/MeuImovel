@@ -38,9 +38,6 @@ public class Dependente {
     @Embedded
     private String carteiraDeTrabalho;
 
-    @Embedded
-    private String rgDependente;
-
     private String arquivoDoRgCliente;
 
     @ElementCollection

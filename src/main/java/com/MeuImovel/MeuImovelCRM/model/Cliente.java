@@ -1,6 +1,7 @@
 package com.MeuImovel.MeuImovelCRM.model;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.cglib.core.Local;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,9 +36,9 @@ public class Cliente {
 
     private String informacaoAdicional;
 
-    private String situacaoSerasa; // aqui vou criar uma classe que retorne a situacao do cliente no serasa
+    private String situacaoSerasa; // aqui o corretor pode adicionar uma informacao por hora (pois a API do serasa cobra por consulta)
 
-    private String dataAvalicao; // vai guardar a data de quando o cliente foi avaliado pelo banco
+    private LocalDate dataAvalicao; // vai guardar a data de quando o cliente foi avaliado pelo banco
 
     @Embedded
     private Email emailCliente;

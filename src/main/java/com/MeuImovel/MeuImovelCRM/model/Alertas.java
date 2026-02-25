@@ -4,7 +4,6 @@ public class Alertas {
     private String titulo;
     private String cor;
     private String mensagem;
-
     private Agenda entidadeDoAlerta; //aqui ele vai puxar todas as informaõcoes da agenda(status, entidade, etc...) para poder colocar a lista de entidades ja filtrada
 }
 

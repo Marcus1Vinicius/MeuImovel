@@ -3,11 +3,11 @@ package com.MeuImovel.MeuImovelCRM.model;
 import java.time.LocalDateTime;
 
 public class Agenda {
-    private String mensagem;
+    private String mensagem; // aqui o corretor vai colocar o intuito da mensagem
     private String entidade; // aqui o corretor escolhe se ele vai agendar o alerta sobre cliente, imovel ou dependente
     private Status statusEntidade; //vai ser o filtro da entidade escolhida
     private LocalDateTime data;
-    private String recorrente; //aqui o corretor pode escolher ser alertado diariamente, semanal, mensal, trimestral, semestral ou anual;
+    private String recorrencia; //aqui o corretor pode escolher ser alertado diariamente, semanal, mensal, trimestral, semestral ou anual;
 
 }
 

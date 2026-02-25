@@ -44,4 +44,6 @@ public class Corretor {
     @OneToMany(mappedBy = "corretorResponsavel") // Muitos imoveis para um corretor // Nome da coluna que guardará o ID do imovel no banco
     private List<Imovel> imoveisCorretor;
 
+    private AssinaturaCorretor pacote; // temos que desenvolver a logica necessaria para a assinatura do corretor
+
 }
