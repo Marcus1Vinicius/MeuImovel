@@ -1,6 +1,6 @@
 package com.MeuImovel.MeuImovelCRM.model;
 
-public class Alertas {
+public class Alerta {
     private String titulo;
     private String cor;
     private String mensagem;
