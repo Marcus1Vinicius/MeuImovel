@@ -6,4 +6,8 @@ public class Contrato {
     private Imovel imovel;
     private LocalDateTime data;
     private int validade; //vai ser contada em dias
+
+    private String arquivoDocumento;
+
+    private Status statusDocumento;
 }
