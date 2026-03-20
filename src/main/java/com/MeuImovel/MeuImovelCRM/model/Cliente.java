@@ -1,7 +1,6 @@
 package com.MeuImovel.MeuImovelCRM.model;
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.cglib.core.Local;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,6 +65,6 @@ public class Cliente {
     @ElementCollection
     @CollectionTable(name = "documento_extra_do_cliente", joinColumns = @JoinColumn(name = "clientr_id"))
     @Column(name = "NovoDocumentoCliente")
-    private List<NovosDocumentos> novoDocumentoCliente = new ArrayList<>();// atributo dedicado a documentos que surgem a medida que o processo de compra do imovel vai dando certo
+    private List<NovoDocumento> novoDocumentoCliente = new ArrayList<>();// atributo dedicado a documentos que surgem a medida que o processo de compra do imovel vai dando certo
 
 }

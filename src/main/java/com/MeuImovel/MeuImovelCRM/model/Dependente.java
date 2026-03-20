@@ -43,5 +43,5 @@ public class Dependente {
     @ElementCollection
     @CollectionTable(name = "documento_extra_do_dependente", joinColumns = @JoinColumn(name = "dependente_id"))
     @Column(name = "NovoDocumentoDependente")
-    private List<NovosDocumentos> novoDocumentoDependente = new ArrayList<>();// atributo dedicado a documentos que surgem a medida que o processo de compra do imovel vai dando certo
+    private List<NovoDocumento> novoDocumentoDependente = new ArrayList<>();// atributo dedicado a documentos que surgem a medida que o processo de compra do imovel vai dando certo
 }
