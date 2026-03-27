@@ -53,6 +53,8 @@ public class Cliente {
 
     private int rendaDoCliente;
 
+    @ManyToOne
+    @JoinColumn(name = "status_id")
     public Status status; // para o corretor poder saber quais os estágios que o cliente se encontra
 
     @ManyToOne // Muitos clientes para um corretor

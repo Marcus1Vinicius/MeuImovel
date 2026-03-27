@@ -26,6 +26,8 @@ public class Dependente {
 
     private String arquivoDoCpfDependente;
 
+    @ManyToOne
+    @JoinColumn(name = "Statusid")
     private Status status;
 
     private int idade;

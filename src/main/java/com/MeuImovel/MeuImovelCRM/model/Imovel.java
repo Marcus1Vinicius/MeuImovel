@@ -19,6 +19,8 @@ public class Imovel {
 
     private float metragem;
 
+    @ManyToOne
+    @JoinColumn(name = "status_id")
     private Status status; //vai ser uma lista assim como o status cliente
 
     private String fotos;
