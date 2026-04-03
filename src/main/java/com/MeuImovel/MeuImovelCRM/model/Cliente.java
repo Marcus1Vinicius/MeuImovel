@@ -53,6 +53,8 @@ public class Cliente {
 
     private int rendaDoCliente;
 
+    private Recorrencia tempoAvaliacao; // toda avaliacao de financiamento tem um prazo de validade
+
     @ManyToOne
     @JoinColumn(name = "status_id")
     public Status status; // para o corretor poder saber quais os estágios que o cliente se encontra

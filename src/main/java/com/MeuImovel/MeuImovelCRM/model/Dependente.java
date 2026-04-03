@@ -35,12 +35,12 @@ public class Dependente {
     private LocalDate dataNascimento;
 
     @Embedded
-    private String Certidao;
+    private String CertidaoNascimento;
 
     @Embedded
-    private String carteiraDeTrabalho;
+    private String carteiraDeTrabalho; // se o dependente for de maior
 
-    private String arquivoDoRgCliente;
+    private String arquivoDoRgDependente;
 
     @ElementCollection
     @CollectionTable(name = "documento_extra_do_dependente", joinColumns = @JoinColumn(name = "dependente_id"))
