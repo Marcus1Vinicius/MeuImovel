@@ -16,7 +16,7 @@ import java.net.http.HttpResponse;
 public class ViaCepService {
     private final RestClient restClient;
 
-    public ViaCepService(RestClient.Builder builder, @Value("viacep.api.url") String urlViaCep) {
+    public ViaCepService(RestClient.Builder builder, @Value("${viacep.api.url}") String urlViaCep) {
         this.restClient = builder
                 .baseUrl(urlViaCep)
                 .build();
@@ -27,7 +27,7 @@ public class ViaCepService {
                 .uri("/{cep}/json/", Cep)
                 .retrieve()
                 .onStatus(HttpStatusCode::is4xxClientError, (request, response) -> {
-                    throw new RuntimeException("Cep errado!");
+                    throw new RuntimeException("Cep não encontrado!");
                 })
                 .body(ViaCepResponse.class);
     }
