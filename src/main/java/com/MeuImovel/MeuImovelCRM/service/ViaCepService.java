@@ -3,32 +3,34 @@ package com.MeuImovel.MeuImovelCRM.service;
 import com.MeuImovel.MeuImovelCRM.dto.ViaCepResponse;
 import com.MeuImovel.MeuImovelCRM.model.Cep;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClient;
 import tools.jackson.databind.ObjectMapper;
 
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-
-
 @Service
 public class ViaCepService {
-    @Value("${viacep.api.url}")
-    private String urlViaCep;
-    public ViaCepResponse getCep(String cep){
-        ViaCepResponse enderecoDto = null;
-        try {
-            HttpClient client = HttpClient.newHttpClient();
-            HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create(urlViaCep+ cep +"/json/")).build();
-            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+    private final RestClient restClient;
 
-            ObjectMapper mapper = new ObjectMapper();
-            enderecoDto = mapper.readValue(response.body(), ViaCepResponse.class);
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-        return enderecoDto;
+    public ViaCepService(RestClient.Builder builder, @Value("viacep.api.url") String urlViaCep) {
+        this.restClient = builder
+                .baseUrl(urlViaCep)
+                .build();
+    }
+
+    public ViaCepResponse getCep(String Cep){
+        return restClient.get()
+                .uri("/{cep}/json/", Cep)
+                .retrieve()
+                .onStatus(HttpStatusCode::is4xxClientError, (request, response) -> {
+                    throw new RuntimeException("Cep errado!");
+                })
+                .body(ViaCepResponse.class);
     }
 }
+
+//aqui e a regra de negocio para a validacao de cep no nosso sistema
