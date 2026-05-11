@@ -10,26 +10,25 @@ public class Senha {
 
     protected Senha(){
     }
-
-    public Senha (String senhaEntrada){
-
-        if(!validarSenha(senhaEntrada)){
-            throw new IllegalArgumentException("Senha inválida! A senha precisa de 8 caracteres(letras maiusculas e minuscula, digitos numericos e caracteres especiais '@#$%' ");
-        }
-        this.senha = senhaEntrada;
+    public Senha(String valorSenha){
+        validateSenha(valorSenha);
+        this.senha = valorSenha;
     }
 
-    private boolean validarSenha(String senha){ //precisamos que a senha tenha no minimo 8 caracteres, onde tenha pelo menos um numero, um digito especial e uma letra maiuscula
+    public String getSenha(String senha){
+        return senha;
+    }
 
-        if(senha == null){
+    public void validateSenha (String senhaEntrada){
+        if(senhaEntrada == null){
             throw new IllegalArgumentException("A senha não pode ser nula!");
         }
-
-        if(senha.length() < 8){
+        if(senhaEntrada.length() < 8){
             throw new IllegalArgumentException("A senha precisar ter no minimo 8 caracteres");
         }
-
-        return senha.matches("^(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=!]).+$");
-
+        if(!senhaEntrada.matches("^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@#$%^&+=!]).{8,}$")){
+            throw new IllegalArgumentException("The password is invalid format! You need add uppercase and lowercase letters, numeric digits, and special characters '@#$%'");
+        }
     }
+
 }
