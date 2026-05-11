@@ -3,7 +3,7 @@ package com.MeuImovel.MeuImovelCRM.model;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-
+@Entity
 public class Alerta {
     @Id // Identifica que este campo é a chave primária
     @GeneratedValue(strategy = GenerationType.IDENTITY)

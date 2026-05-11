@@ -2,40 +2,41 @@ package com.MeuImovel.MeuImovelCRM.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
+import lombok.Getter;
 
+@Getter
 @Embeddable
 public class Cep {
     @Column(name = "CEP")
-    private String valor;
+    private String cepDigits;
 
     protected Cep(){}
 
-    public Cep(String cepEntrada){
-
-        if (cepEntrada == null || !cepEntrada.matches("\\d{8}")) {
-            throw new IllegalArgumentException("CEP deve conter exatamente 8 números.");
-        }
-        this.valor = cepEntrada;
-
+    public void setCepDigits(String cepInput){
+        validateCep(cepInput);
     }
+    public String getValor() { return cepDigits; }
 
-    public String getValor() { return valor; }
+    public void validateCep(String cepDigits){
 
-    private boolean validarCep(String valor){ //esse metodo garante que o cep vai estar no formato requisitado pela api
-
-        if(valor == null){
-            throw new IllegalArgumentException("O cep não pode ser nulo!");
+        if(cepDigits == null){
+            throw new IllegalArgumentException("CEP nulo!");
         }
 
-        if(!valor.matches("^\\\\d+$")){
+        String cepClean = cepDigits.replaceAll("\\D", "");
+
+        if(!cepClean.matches("^\\d+$")){
             throw new IllegalArgumentException("O cep deve conter apenas números!");
         }
 
-        if(valor.length() != 8){
-            throw new IllegalArgumentException("O cep deve conter apenas 8 digitos!");
+        if(cepClean.length() != 8){
+            throw new IllegalArgumentException("CEP deve conter exatamente 8 números.");
         }
 
-        return valor.matches("^\\d{5}\\d{8}$");
+        if (cepClean.matches("(\\d)\\1{7}")) {
+            throw new IllegalArgumentException("O CEP não pode conter apenas números repetidos!");
+        }
 
+        this.cepDigits = cepClean;
     }
 }
