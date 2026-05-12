@@ -6,16 +6,19 @@ import lombok.Getter;
 
 @Getter
 @Embeddable
-public class Cep {
+public class Cep{
     @Column(name = "CEP")
     private String cepDigits;
 
     protected Cep(){}
 
-    public void setCepDigits(String cepInput){
+    public Cep(String cepInput){
         validateCep(cepInput);
+        this.cepDigits = cepInput;
     }
-    public String getValor() { return this.cepDigits; }
+    public String getCep() {
+        return this.cepDigits;
+    }
 
     public void validateCep(String cepDigits){
 

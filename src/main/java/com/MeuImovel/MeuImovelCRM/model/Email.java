@@ -27,4 +27,5 @@ public class Email {
             throw new IllegalArgumentException("Email format invalid!");
         }
     }
+    // validacao de email por envio de codigo no service de cadastro de corretor
 }

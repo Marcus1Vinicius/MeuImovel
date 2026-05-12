@@ -35,10 +35,10 @@ public class Dependente {
     private LocalDate dataNascimento;
 
     @Embedded
-    private String CertidaoNascimento;
+    private String CertidaoNascimento; // isso tambem vai para o service, pois se o dependente for de maior so o rg basta
 
     @Embedded
-    private String carteiraDeTrabalho; // se o dependente for de maior
+    private String carteiraDeTrabalho; // se o dependente for de maior, isso vai para o service
 
     private String arquivoDoRgDependente;
 

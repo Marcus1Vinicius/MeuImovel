@@ -19,25 +19,19 @@ public class Cpf {
     };
 
     public Cpf(String cpfEntrada){
-
-        String cpfProcessado = validarTamanhoCpf(cpfEntrada);
-
-        if(!ValidarCpf(cpfProcessado)){
-            throw new IllegalArgumentException("O cálculo do CPF é inválido.");
-        }
-        this.cpfDigitos = cpfProcessado;
+        parseCpf(cpfEntrada);
+        this.cpfDigitos = cpfEntrada;
     }
-
     //metodos
-    private String validarTamanhoCpf(String cpfDigitos) { //esse metodo retira os pontos e tracos do cpf, valida se foi digitado algo no cpf, valida a quantidade de caracteres, valida se esses caracteres sao somente numericos e converte o cpf string para int
+    private void parseCpf(String cpfDigitos) { //esse metodo retira os pontos e tracos do cpf, valida se foi digitado algo no cpf, valida a quantidade de caracteres, valida se esses caracteres sao somente numericos e converte o cpf string para int
 
         if(cpfDigitos == null){
             throw new IllegalArgumentException("O CPF não pode ser nulo");
         }
 
-        String cpfLimpo = cpfDigitos.replaceAll("[.-]", "");
+        String cpfLimpo = cpfDigitos.replaceAll("\\D", "");
 
-        if(!cpfLimpo.matches("\\d{11}")){
+        if(cpfLimpo.length() != 11){
             throw new IllegalArgumentException("O CPF deve conter apenas 11 números");
         }
 
@@ -45,9 +39,9 @@ public class Cpf {
             throw new IllegalArgumentException("CPF inválido (números repetidos)");
         }
 
-        return cpfLimpo;
+        validarCpf(cpfLimpo);
     }
-    private boolean ValidarCpf(String cpfLimpo) { // esse metodo vai realizar o calculo necessario para validar os dois ultimos digitos do cpf, para validar se o cpf esta correto ou incorreto
+    private void validarCpf(String cpfLimpo) { // esse metodo vai realizar o calculo necessario para validar os dois ultimos digitos do cpf, para validar se o cpf esta correto ou incorreto
 
         int[] pesosPrimeiroDigito = {10, 9, 8, 7, 6, 5, 4, 3, 2};
 
@@ -67,7 +61,7 @@ public class Cpf {
         int valorPrimeiroDigito = cpfLimpo.charAt(9) - '0';
 
       if(validarPrimeiroDigito != valorPrimeiroDigito){
-           return false;
+           throw new IllegalArgumentException("Cpf invalid");
        }
 
       // agora vamos validar o decimo segundo digito do cpf
@@ -89,10 +83,8 @@ public class Cpf {
       int valorSegundoDigito = cpfLimpo.charAt(10) - '0';
 
       if(validarSegundoDigito != valorSegundoDigito){
-          return false;
+          throw new IllegalArgumentException("Cpf invalid");
       }
-
-      return true;
 
     }
 
@@ -105,4 +97,5 @@ public class Cpf {
                 cpfDigitos.substring(9);
     }
 }
+
 

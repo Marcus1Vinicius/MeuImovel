@@ -17,7 +17,7 @@ public class Imovel {
 
     private int valor;
 
-    private float metragem;
+    private int areaConstruida;
 
     @ManyToOne
     @JoinColumn(name = "status_id")
@@ -49,5 +49,7 @@ public class Imovel {
     private Cliente clienteComprador;
 
     private String informacaoAdicional;
+
+    private String arquivoAdicional;
 
 }
