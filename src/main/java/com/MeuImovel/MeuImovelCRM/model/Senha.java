@@ -15,8 +15,8 @@ public class Senha {
         this.senha = valorSenha;
     }
 
-    public String getSenha(String senha){
-        return senha;
+    public String getSenha(){
+        return this.senha;
     }
 
     public void validateSenha (String senhaEntrada){

@@ -15,7 +15,7 @@ public class Cep {
     public void setCepDigits(String cepInput){
         validateCep(cepInput);
     }
-    public String getValor() { return cepDigits; }
+    public String getValor() { return this.cepDigits; }
 
     public void validateCep(String cepDigits){
 

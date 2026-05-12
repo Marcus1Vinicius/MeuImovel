@@ -12,22 +12,21 @@ public class Email {
 
     }
     public Email(String emailEntrada){
-
-        boolean emailProcessado = validarEmail(emailEntrada);
-
-        if(!emailProcessado){
-            throw new IllegalArgumentException("email inválido!");
-        }
-
+        validateEmail(emailEntrada);
         this.email = emailEntrada;
     }
 
-    private boolean validarEmail(String email){
+    public String getEmail(){
+        return this.email;
+    }
+
+    private void validateEmail(String email){
 
         if(email == null){
             throw new IllegalArgumentException("O email não pode ser nulo!");
         }
-
-        return email.matches("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$");
+        if(!email.matches("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$")){
+            throw new IllegalArgumentException("Email format invalid!");
+        }
     }
 }
