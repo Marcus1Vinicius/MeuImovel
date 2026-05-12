@@ -2,7 +2,9 @@ package com.MeuImovel.MeuImovelCRM.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
+import lombok.Getter;
 
+@Getter
 @Embeddable
 public class Senha {
     @Column(name = "senha")
@@ -13,10 +15,6 @@ public class Senha {
     public Senha(String valorSenha){
         validateSenha(valorSenha);
         this.senha = valorSenha;
-    }
-
-    public String getSenha(){
-        return this.senha;
     }
 
     public void validateSenha (String senhaEntrada){

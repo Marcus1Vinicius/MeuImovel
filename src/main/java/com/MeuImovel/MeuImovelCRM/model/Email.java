@@ -2,7 +2,9 @@ package com.MeuImovel.MeuImovelCRM.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
+import lombok.Getter;
 
+@Getter
 @Embeddable
 public class Email {
     @Column(name = "email")
@@ -14,10 +16,6 @@ public class Email {
     public Email(String emailEntrada){
         validateEmail(emailEntrada);
         this.email = emailEntrada;
-    }
-
-    public String getEmail(){
-        return this.email;
     }
 
     private void validateEmail(String email){

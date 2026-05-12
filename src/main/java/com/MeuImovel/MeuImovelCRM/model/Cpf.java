@@ -2,11 +2,12 @@ package com.MeuImovel.MeuImovelCRM.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
+import lombok.Getter;
 import org.hibernate.annotations.Collate;
 
 
 @Embeddable // preciso adicionar em todos os objetos que sao atributos em outras classes
-
+@Getter
 public class Cpf {
     //Atributos
     @Column(name = "cpf")
@@ -18,6 +19,7 @@ public class Cpf {
     };
 
     public Cpf(String cpfEntrada){
+
         String cpfProcessado = validarTamanhoCpf(cpfEntrada);
 
         if(!ValidarCpf(cpfProcessado)){
