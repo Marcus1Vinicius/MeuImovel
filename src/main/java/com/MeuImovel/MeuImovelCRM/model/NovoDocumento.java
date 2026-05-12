@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 @Embeddable
 @Data
 public class NovoDocumento {
+
     @Id // Identifica que este campo é a chave primária
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Diz ao banco para auto-incrementar o número
     private Long id;

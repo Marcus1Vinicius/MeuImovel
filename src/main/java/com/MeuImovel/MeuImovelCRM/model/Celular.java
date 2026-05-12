@@ -11,29 +11,33 @@ public class Celular {
 
     }
     public Celular(String celularEntrada){
-
-        boolean celularProcessado = validarDigitosCelular(celularEntrada);
-
-        if (!celularProcessado){
-            throw new IllegalArgumentException("Celular inválido!");
-        }
-        this.celularDigitos = celularEntrada.replaceAll("\\D", "");
-
+        validateDigitosCelular(celularEntrada);
+        this.celularDigitos = celularEntrada;
     }
 
-    private boolean validarDigitosCelular(String celularDigitos){ // esse metodo vai validar o celular
+    public String getCelular(){
+        return this.celularDigitos;
+    }
+
+    private void validateDigitosCelular(String celularDigitos){ // esse metodo vai validar o celular
 
         if(celularDigitos == null){
-            throw new IllegalArgumentException("O celular não pode ser nulo!");
+            throw new IllegalArgumentException("The phone number cannot null!");
         }
 
-        if (celularDigitos.matches("(\\d)\\1+")) {
-            throw new IllegalArgumentException("Celular inválido (números repetidos)");
+        String phoneClean = celularDigitos.replaceAll("\\D", "");
+
+        if(phoneClean.length() != 11){
+            throw new IllegalArgumentException("The phone number must have 11 digits!");
         }
 
-        String celularLimpo = celularDigitos.replaceAll("\\D", "");
+        if (phoneClean.matches("(\\d)\\1{10}")) {
+            throw new IllegalArgumentException("The phone number cannot consist of repeated numbers!");
+        }
 
-        return celularLimpo.matches("^(?:1[1-9]|[2-9][1-9])9\\d{8}$"); // esse regex faz toda a validação dos celulares do brasil
+        if(!phoneClean.matches("^[1-9]{2}9[0-9]{8}$")){
+            throw new IllegalArgumentException("The phone number invalid!");
+        };
 
     }
 }
