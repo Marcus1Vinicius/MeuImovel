@@ -2,6 +2,7 @@ package com.MeuImovel.MeuImovelCRM.model;
 
 import jakarta.persistence.*;
 @Entity
+@Embeddable
 public class Status {
 private
     @Id // Identifica que este campo é a chave primária

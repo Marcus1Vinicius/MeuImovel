@@ -64,7 +64,7 @@ public class Cliente {
     private Corretor corretorVendedor;
 
     @OneToMany(mappedBy = "clienteComprador") // Muitos imoveis para um cliente // Nome da coluna que guardará o ID do imovel no banco
-    private List<Imovel> imoveisCliente;
+    private List<Imovel> imoveisCliente = new ArrayList<>();
 
     @ElementCollection
     @CollectionTable(name = "documento_extra_do_cliente", joinColumns = @JoinColumn(name = "clientr_id"))

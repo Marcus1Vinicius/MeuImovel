@@ -13,6 +13,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor // Cria o construtor vazio para o Hibernate
 @AllArgsConstructor // Cria o construtor completo
+@Embeddable
 @Entity
 public class Dependente {
     @Id
