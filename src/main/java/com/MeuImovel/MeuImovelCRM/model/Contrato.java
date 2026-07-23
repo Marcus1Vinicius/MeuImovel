@@ -13,12 +13,13 @@ import java.time.LocalDateTime;
 @AllArgsConstructor // Cria o construtor completo
 @Entity
 public class Contrato {
-    private Cliente cliente;
-    private Imovel imovel;
-    private LocalDateTime data;
-    private String arquivoDocumento;
+    private
+    Cliente cliente;
+    Imovel imovel;
+    LocalDateTime data;
+    String arquivoDocumento;
     @ManyToOne
     @JoinColumn(name = "status_id")
-    private Status statusDocumento;
-    private Recorrencia validade; // aqui o corretor vai colocar em quanto tempo o contrato se vence
+    Status statusDocumento;
+    Recorrencia validade; // aqui o corretor vai colocar em quanto tempo o contrato se vence
 }

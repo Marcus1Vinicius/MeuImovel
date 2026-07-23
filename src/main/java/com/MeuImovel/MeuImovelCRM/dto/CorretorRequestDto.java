@@ -19,8 +19,8 @@ public record CorretorRequestDto(
 
         String foto,
 
-        @NotBlank(message = "O CPF é obrigatório")
-        String cpf,
+        @NotBlank(message = "O user-name é obrigatório")
+        String userName,
 
         @NotBlank(message = "A senha é obrigatória")
         String senha,

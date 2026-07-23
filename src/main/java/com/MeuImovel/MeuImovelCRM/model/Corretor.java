@@ -18,15 +18,15 @@ import java.time.LocalDate;
 public class Corretor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     private String nome;
 
     private LocalDate dataNascimento;
 
-    private String creciCorretor;
+    private String creci;
 
-    private String fotoCorretor;
+    private String foto;
 
     @Embedded
     private Cpf cpfCorretor;
@@ -44,5 +44,4 @@ public class Corretor {
     private List<Imovel> imoveisCorretor = new ArrayList<>();
 
     private AssinaturaCorretor pacote; // temos que desenvolver a logica necessaria para a assinatura do corretor
-
 }

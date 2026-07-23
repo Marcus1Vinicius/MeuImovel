@@ -20,8 +20,6 @@ public class Cliente {
 
     private LocalDate dataNascimento;
 
-    private int idade;
-
     @Embedded
     private Cpf cpfDigitadoCliente;
 
