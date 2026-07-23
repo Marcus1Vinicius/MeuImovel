@@ -1,4 +1,4 @@
 package com.MeuImovel.MeuImovelCRM.dto;
 
-public class CorretorRequest {
+public class ImovelRequestDto {
 }

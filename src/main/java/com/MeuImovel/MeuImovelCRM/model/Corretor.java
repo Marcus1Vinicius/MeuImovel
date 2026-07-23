@@ -24,8 +24,6 @@ public class Corretor {
 
     private LocalDate dataNascimento;
 
-    private int idade;
-
     private String creciCorretor;
 
     private String fotoCorretor;
